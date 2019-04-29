@@ -21,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
         Spinner spin = (Spinner) findViewById(R.id.spinner);
         spin.setPrompt("프로그래밍 언어를 선택하세요");
 
-        adspin = ArrayAdapter.createFromResource(this.R.array.languages, android.R.layout.simple_spinner_item);
-        adspin.setDropDownViewResource(android.R.layout.simple_list_item_single_single_choice);
+        adspin = ArrayAdapter.createFromResource(this,R.array.languages, android.R.layout.simple_spinner_item);
+        adspin.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spin.setAdapter(adspin);
 
-        spin.setOnItemSelectedListener(new AdapterView.OnitemSelectedListener() {
-            public void onItemSelected(AdapterVIew<?> parent, View view, int position, long id) {
+        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this, adspin.getItem(position) + "선택!!", Toast.LENGTH_SHORT).show();
             }
 
-            public void onNothingSelected(AdapterVIew<?> parent) {
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
